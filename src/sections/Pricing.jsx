@@ -70,10 +70,10 @@ function PricingCard({ plan, annual, index }) {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      animate={inView ? { opacity: 1, y: 0, scale: plan.featured ? 1.05 : 1 } : {}}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.12 }}
       className={`relative flex flex-col rounded-2xl p-px ${
-        plan.featured ? 'md:-mt-4 md:mb-[-16px]' : ''
+        plan.featured ? 'md:scale-105 md:-mt-4 md:mb-[-16px]' : ''
       }`}
       style={
         plan.featured
@@ -196,7 +196,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             Pricing

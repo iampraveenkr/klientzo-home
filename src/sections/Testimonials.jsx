@@ -99,15 +99,15 @@ function TestimonialCard({ t, index }) {
 function AnimatedStat({ stat, index }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
+  const motionVal = useMotionValue(0)
   const [displayed, setDisplayed] = useState(0)
 
   useEffect(() => {
     if (!inView) return
-    const mv = useMotionValue(0)
-    const unsub = mv.on('change', (v) => setDisplayed(Math.round(v)))
-    animate(mv, stat.value, { duration: 1.8, delay: index * 0.2, ease: 'easeOut' })
+    const unsub = motionVal.on('change', (v) => setDisplayed(Math.round(v)))
+    animate(motionVal, stat.value, { duration: 1.8, delay: index * 0.2, ease: 'easeOut' })
     return unsub
-  }, [inView, stat.value, index])
+  }, [inView, stat.value, index, motionVal])
 
   const formatted =
     stat.value >= 1000
@@ -115,11 +115,11 @@ function AnimatedStat({ stat, index }) {
       : displayed
 
   return (
-    <div ref={ref} className="text-center px-4">
-      <div className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
+    <div ref={ref} className="text-center px-2 sm:px-4">
+      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
         {formatted}{stat.suffix}
       </div>
-      <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+      <div className="text-xs sm:text-sm text-gray-500 mt-1">{stat.label}</div>
     </div>
   )
 }
@@ -141,7 +141,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             Testimonials
@@ -168,7 +168,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={statsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-3 divide-x divide-white/5 py-8 rounded-xl"
+          className="grid grid-cols-3 divide-x divide-white/5 py-6 sm:py-8 rounded-xl"
           style={{
             background: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.06)',

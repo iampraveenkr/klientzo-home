@@ -28,7 +28,7 @@ function WhatsAppMockup() {
       style={{
         background: '#111b21',
         border: '2px solid rgba(255,255,255,0.08)',
-        animation: 'vibrate 0.3s ease-in-out infinite',
+        animation: 'vibrate 0.3s ease-in-out 3',
       }}
     >
       {/* Phone status bar */}
@@ -301,7 +301,7 @@ export default function Problem() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16 md:mb-20"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             The Problem
@@ -322,7 +322,7 @@ export default function Problem() {
           initial={{ opacity: 0, y: 40 }}
           animate={comparisonInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-5xl mx-auto mb-16 md:mb-20"
+          className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-5xl mx-auto mb-16"
         >
           {/* Before — WhatsApp */}
           <div className="flex flex-col items-center">

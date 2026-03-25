@@ -117,12 +117,12 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden relative w-6 h-5 flex flex-col justify-between"
+          className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-[5px]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           <motion.span
-            className="block w-full h-0.5 bg-white rounded-full origin-left"
+            className="block w-5 h-0.5 bg-white rounded-full origin-left"
             animate={
               mobileOpen
                 ? { rotate: 45, y: 0, x: 1 }
@@ -131,12 +131,12 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
           />
           <motion.span
-            className="block w-full h-0.5 bg-white rounded-full"
+            className="block w-5 h-0.5 bg-white rounded-full"
             animate={mobileOpen ? { opacity: 0, x: -8 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.2 }}
           />
           <motion.span
-            className="block w-full h-0.5 bg-white rounded-full origin-left"
+            className="block w-5 h-0.5 bg-white rounded-full origin-left"
             animate={
               mobileOpen
                 ? { rotate: -45, y: 0, x: 1 }

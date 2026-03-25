@@ -240,32 +240,36 @@ function SocialProof() {
         Trusted by agencies across India
       </p>
       <div
-        className="inline-flex items-center gap-5 md:gap-8 px-6 py-3 rounded-full"
-        style={{
-          background: 'rgba(255,255,255,0.03)',
-          border: '1px solid rgba(255,255,255,0.05)',
-        }}
+        className="w-full max-w-2xl mx-auto overflow-x-auto scrollbar-hide"
       >
-        {AGENCIES.map((name, i) => (
-          <span key={name} className="flex items-center gap-5 md:gap-8">
-            <span
-              className="text-sm md:text-base text-gray-500 font-semibold whitespace-nowrap"
-              style={{
-                fontFamily:
-                  i % 2 === 0
-                    ? 'var(--font-heading)'
-                    : 'var(--font-body)',
-                fontStyle: i === 3 ? 'italic' : 'normal',
-                letterSpacing: i === 1 ? '0.1em' : i === 4 ? '-0.02em' : 'normal',
-              }}
-            >
-              {name}
+        <div
+          className="inline-flex items-center gap-4 sm:gap-5 md:gap-8 px-5 sm:px-6 py-3 rounded-full mx-auto whitespace-nowrap"
+          style={{
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.05)',
+          }}
+        >
+          {AGENCIES.map((name, i) => (
+            <span key={name} className="flex items-center gap-4 sm:gap-5 md:gap-8">
+              <span
+                className="text-xs sm:text-sm md:text-base text-gray-500 font-semibold"
+                style={{
+                  fontFamily:
+                    i % 2 === 0
+                      ? 'var(--font-heading)'
+                      : 'var(--font-body)',
+                  fontStyle: i === 3 ? 'italic' : 'normal',
+                  letterSpacing: i === 1 ? '0.1em' : i === 4 ? '-0.02em' : 'normal',
+                }}
+              >
+                {name}
+              </span>
+              {i < AGENCIES.length - 1 && (
+                <span className="text-gray-700">•</span>
+              )}
             </span>
-            {i < AGENCIES.length - 1 && (
-              <span className="text-gray-700">•</span>
-            )}
-          </span>
-        ))}
+          ))}
+        </div>
       </div>
     </motion.div>
   )

@@ -440,7 +440,7 @@ export default function Features() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             Features

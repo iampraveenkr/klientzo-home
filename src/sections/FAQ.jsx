@@ -93,7 +93,7 @@ export default function FAQ() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             FAQ

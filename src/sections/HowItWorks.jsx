@@ -35,6 +35,7 @@ const STEPS = [
 function StepCard({ step, index }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const isEven = index % 2 === 0
 
   return (
     <motion.div
@@ -45,12 +46,12 @@ function StepCard({ step, index }) {
       className="relative grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-10 items-center"
     >
       {/* Left / Right content — alternating sides on desktop */}
-      <div className={`${index % 2 === 0 ? 'md:text-right' : 'md:order-3 md:text-left'}`}>
+      <div className={`${isEven ? 'md:text-right' : 'md:order-3 md:text-left'}`}>
         {/* Step number */}
         <span className="inline-block text-5xl md:text-6xl font-bold font-[family-name:var(--font-heading)] text-primary/20 leading-none mb-3">
           {step.num}
         </span>
-        <div className="flex items-center gap-2.5 mb-2 ${index % 2 === 0 ? 'md:justify-end' : ''}">
+        <div className={`flex items-center gap-2.5 mb-2 ${isEven ? 'md:justify-end' : ''}`}>
           <span className="text-2xl">{step.icon}</span>
           <h3 className="text-lg md:text-xl font-bold text-white font-[family-name:var(--font-heading)]">
             {step.title}
@@ -81,7 +82,7 @@ function StepCard({ step, index }) {
       </div>
 
       {/* Opposite side — empty on desktop for layout balance */}
-      <div className={`hidden md:block ${index % 2 === 0 ? 'md:order-3' : ''}`} />
+      <div className={`hidden md:block ${isEven ? 'md:order-3' : ''}`} />
     </motion.div>
   )
 }
@@ -117,7 +118,7 @@ export default function HowItWorks() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-20"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-4">
             How It Works
