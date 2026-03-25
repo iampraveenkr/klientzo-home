@@ -245,10 +245,12 @@ export default function Pricing() {
           )}
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-5 items-start max-w-5xl mx-auto">
+        {/* Cards — horizontal scroll on mobile, grid on desktop */}
+        <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-5 items-start max-w-5xl mx-auto overflow-x-auto md:overflow-visible pricing-scroll-mobile pb-4 md:pb-0 -mx-6 px-6 md:mx-auto md:px-0">
           {PLANS.map((plan, i) => (
-            <PricingCard key={plan.name} plan={plan} annual={annual} index={i} />
+            <div key={plan.name} className="min-w-[300px] md:min-w-0 shrink-0 md:shrink">
+              <PricingCard plan={plan} annual={annual} index={i} />
+            </div>
           ))}
         </div>
 

@@ -11,6 +11,7 @@
   --color-dark-card: #141425;
   --font-heading: "Bricolage Grotesque", sans-serif;
   --font-body: "DM Sans", sans-serif;
+  --breakpoint-xs: 480px;
 }
 
 * {
@@ -73,6 +74,26 @@ h1, h2, h3, h4, h5, h6 {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Minimum touch targets for interactive nav/CTA elements on mobile */
+@media (pointer: coarse) {
+  nav a, nav button,
+  [role="button"],
+  a[href^="http"], a[href^="mailto"],
+  section > div a[class*="rounded"] {
+    min-height: 44px;
+  }
+}
+
+/* Pricing mobile scroll */
+.pricing-scroll-mobile {
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.pricing-scroll-mobile > * {
+  scroll-snap-align: center;
 }
 
 ::-webkit-scrollbar {

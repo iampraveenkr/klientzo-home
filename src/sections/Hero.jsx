@@ -7,7 +7,7 @@ const fadeUp = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut', delay: i * 0.15 },
+    transition: { duration: 0.6, ease: 'easeOut', delay: i * 0.1 },
   }),
 }
 
@@ -358,8 +358,8 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      {/* Product Mockup */}
-      <div className="relative z-10 w-full px-6">
+      {/* Product Mockup — hidden on very small screens */}
+      <div className="relative z-10 w-full px-6 hidden xs:block">
         <DashboardMockup />
       </div>
 

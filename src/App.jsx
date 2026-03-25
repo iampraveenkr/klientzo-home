@@ -1,14 +1,16 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
-import Problem from './sections/Problem'
-import Features from './sections/Features'
-import HowItWorks from './sections/HowItWorks'
-import Pricing from './sections/Pricing'
-import Testimonials from './sections/Testimonials'
-import FAQ from './sections/FAQ'
-import FinalCTA from './sections/FinalCTA'
-import Footer from './sections/Footer'
+
+const Problem = lazy(() => import('./sections/Problem'))
+const Features = lazy(() => import('./sections/Features'))
+const HowItWorks = lazy(() => import('./sections/HowItWorks'))
+const Pricing = lazy(() => import('./sections/Pricing'))
+const Testimonials = lazy(() => import('./sections/Testimonials'))
+const FAQ = lazy(() => import('./sections/FAQ'))
+const FinalCTA = lazy(() => import('./sections/FinalCTA'))
+const Footer = lazy(() => import('./sections/Footer'))
 
 function App() {
   return (
@@ -16,14 +18,16 @@ function App() {
       <div className="min-h-screen bg-dark-bg text-gray-200">
         <Navbar />
         <Hero />
-        <Problem />
-        <Features />
-        <HowItWorks />
-        <Pricing />
-        <Testimonials />
-        <FAQ />
-        <FinalCTA />
-        <Footer />
+        <Suspense fallback={null}>
+          <Problem />
+          <Features />
+          <HowItWorks />
+          <Pricing />
+          <Testimonials />
+          <FAQ />
+          <FinalCTA />
+          <Footer />
+        </Suspense>
       </div>
     </BrowserRouter>
   )
