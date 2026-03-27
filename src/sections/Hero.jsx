@@ -17,43 +17,19 @@ function GradientOrbs() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Orb 1 — indigo, top-left */}
       <div
-        className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.15]"
+        className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.08]"
         style={{
           background: 'radial-gradient(circle, #6366f1 0%, transparent 70%)',
-          animation: 'float 8s ease-in-out infinite',
         }}
       />
       {/* Orb 2 — purple, top-right */}
       <div
-        className="absolute -top-20 -right-32 w-[400px] h-[400px] rounded-full opacity-[0.10]"
+        className="absolute -top-20 -right-32 w-[400px] h-[400px] rounded-full opacity-[0.06]"
         style={{
           background: 'radial-gradient(circle, #8b5cf6 0%, transparent 70%)',
-          animation: 'float 10s ease-in-out 2s infinite',
-        }}
-      />
-      {/* Orb 3 — pink, bottom-center */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full opacity-[0.08]"
-        style={{
-          background: 'radial-gradient(circle, #e879f9 0%, transparent 70%)',
-          animation: 'float 12s ease-in-out 4s infinite',
         }}
       />
     </div>
-  )
-}
-
-/* ── Grid Overlay ───────────────────────────────────────────── */
-function GridOverlay() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-        backgroundSize: '64px 64px',
-      }}
-    />
   )
 }
 
@@ -100,12 +76,11 @@ function DashboardMockup() {
 
   return (
     <motion.div
-      custom={6}
+      custom={5}
       variants={fadeUp}
       initial="hidden"
       animate="visible"
       className="relative mt-16 mx-auto max-w-4xl"
-      style={{ animation: 'float 6s ease-in-out infinite' }}
     >
       {/* Glow behind the mockup */}
       <div
@@ -284,10 +259,9 @@ export default function Hero() {
       style={{ backgroundColor: '#08080f' }}
     >
       <GradientOrbs />
-      <GridOverlay />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[800px] mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Badge */}
         <Badge />
 
@@ -297,13 +271,13 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-8 font-[family-name:var(--font-heading)] font-bold text-white text-[40px] md:text-[64px] leading-[1.08] tracking-tight"
+          className="mt-8 font-[family-name:var(--font-heading)] font-bold text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] leading-[1.08] tracking-tight"
         >
-          Your clients are tired of
+          Your clients are tired of asking on
           <br />
-          <span className="gradient-text">asking on WhatsApp</span>
-          <br />
-          Give them a portal.
+          <span className="gradient-text">WhatsApp.</span>
+          {' '}
+          <span className="gradient-text">Give them a portal.</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -312,12 +286,11 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-6 text-base md:text-xl leading-relaxed max-w-2xl mx-auto"
+          className="mt-6 text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto"
           style={{ color: '#94a3b8' }}
         >
-          Klientzo gives your agency a beautiful client portal —
-          share project updates, upload deliverables, get approvals.
-          No WhatsApp. No email threads. Just clarity.
+          Klientzo gives your agency a beautiful client portal — share project updates, upload
+          deliverables, get approvals. No WhatsApp. No email threads. Just clarity.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -356,9 +329,9 @@ export default function Hero() {
           className="mt-6 text-xs md:text-sm flex flex-wrap items-center justify-center gap-x-5 gap-y-1"
           style={{ color: '#64748b' }}
         >
-          <span>✓ No credit card required</span>
-          <span>✓ Setup in 5 minutes</span>
-          <span>✓ First 14 days free</span>
+          <span><span className="text-green-400">✓</span> No credit card required</span>
+          <span><span className="text-green-400">✓</span> Setup in 5 minutes</span>
+          <span><span className="text-green-400">✓</span> First 14 days free</span>
         </motion.p>
       </div>
 

@@ -78,7 +78,7 @@ export default function Navbar() {
             />
           </div>
           <span className="text-lg font-bold font-[family-name:var(--font-heading)] text-white">
-            Klientzo
+            klientzo
           </span>
         </a>
 
